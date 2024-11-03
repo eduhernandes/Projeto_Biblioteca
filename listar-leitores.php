@@ -2,18 +2,17 @@
 <html>
 <head>
     <title>Agenda de Contatos</title>
-    <!--criando estilo css -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="index.html"><button title="Homepage">Voltar</button></a>
-    <center>
-        <h1>SISTEMA BIBLIOTECA</h1>
-        <h3>Leitores Cadastrados</h3>
-    </center>
-    <hr>
-
-    <?php
+    <header>
+        <a href="index.html"><button title="Voltar ao início">Home</button></a>
+            <h1 class="text-center">SISTEMA BIBLIOTECA</h1>
+            <h3 class="text-center">Leitores Cadastrados</h3>
+        <hr>
+    </header>
+   <main>
+   <?php
     include "config.php";
 
     $sql = "SELECT * FROM leitores";
@@ -40,5 +39,6 @@
             </tr>
         </table>
     </form>
+   </main>
 </body>
 </html>

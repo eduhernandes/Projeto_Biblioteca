@@ -7,26 +7,39 @@ body {
 h1 {
     color: #333;
 }
+label{
+    width: 100px;
+    text-align: right;
+    display: inline-block;
+    padding-right: 5px;
+}
 .container {
-    max-width: 600px;
-    margin: auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+.button-group {
+    border: 1px solid #ccc; /* Borda da caixa */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    margin: 10px; /* Espaçamento entre as caixas */
+    width: 300px; /* Largura fixa para as caixas */
+    text-align: center; /* Centraliza o texto */
 }
 .button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
+    display: block; /* Faz cada botão ocupar a linha inteira */
+    margin: 10px 0; /* Espaçamento entre os botões */
+    padding: 10px; /* Espaçamento interno do botão */
+    background-color: #007BFF; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    border-radius: 5px; /* Bordas arredondadas para os botões */
 }
+
 .button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+}
+.text-center {
+    text-align: center;
 }

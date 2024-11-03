@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Livros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html"><button title="Voltar ao início">Home</button></a>
+        <h1 class="text-center">SISTEMA BIBLIOTECA</h1>
+        <h3 class="text-center">CADASTRO DE LIVROS</h3>
+    <hr>
+  </header>
+<main>
 <?php
 // Inclui o arquivo de configuração (conexão com banco de dados)
 include "config.php";
@@ -26,13 +42,16 @@ die(mysqli_error(mysql: $conn));
 
 if($query){
     echo "<center>";
-    echo "Cadastro realizado com sucesso!!<br>";
-    echo "<a href='index.php'><button title='Home page'>Voltar</button></a>";
+    echo "<h3 class='text-center'>Cadastro realizado com sucesso!!</h3><br>";
+    echo "<a href='index.html'><button title='Home page'>Voltar</button></a>";
     echo "</center>";
 } else {
     echo "<center>";
-    echo "Erro ao cadastrar!!<br>";
-    echo "<a href='index.php'><button title='Home page'>Voltar</button></a>";
+    echo "<h3 class='text-center'>Erro ao cadastrar!!<br>";
+    echo "<a href='index.html'><button title='Home page'>Voltar</button></a>";
     echo "</center>";
 }
 ?>
+</main>
+</body>
+</html>

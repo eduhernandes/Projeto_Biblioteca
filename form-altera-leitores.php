@@ -7,8 +7,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+        <a href="index.html"><button title="Voltar ao início">Home</button></a>
+        <center>
+            <h1>SISTEMA BIBLIOTECA</h1>
+            <h3>CADASTRO DE LEITORES</h3>
+        </center>
+        <hr>
+  </header>
   <div class="container">
-    <h1>ALTERAR/EXCLUIR CADASTRO DE LEITORES</h1>
+    <h3>ALTERAR/EXCLUIR</h3>
 
 
     <?php
@@ -27,10 +35,10 @@ if ($codleitor > 0) {
     }
 };
 ?>
-        <form action="atualiza-leitor.php" method="post">
+        <form action="altera-leitor.php" method="post">
         <div>
         <label for="codleitor">Código:</label>
-        <input type="text" id="codleitor" name="codleitor" value="<?php 
+        <input type="text" id="codleitor" name="codleitor" readonly value="<?php 
                     echo isset($linha['CodLeitor']) ? htmlspecialchars($linha['CodLeitor']) : '' ?>" required />
       </div>
         <div>
@@ -49,6 +57,10 @@ if ($codleitor > 0) {
       <div>
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" value="<?php echo isset($linha['Email']) ? htmlspecialchars($linha['Email']) : ''; ?>" required />
+      </div>
+      <div>
+        <label for="ra">RA:</label>
+        <input type="ra" id="ra" name="ra" value="<?php echo isset($linha['RA']) ? htmlspecialchars($linha['RA']) : ''; ?>" required />
       </div>
       <div>
         <label for="endereco">Endereço:</label>

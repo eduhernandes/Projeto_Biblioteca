@@ -3,16 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <meta name="description" content="Sistema de Biblioteca para gerenciamento de livros e leitores.">
+    <title>Página Inicial - Sistema Biblioteca</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Bem-vindo ao Sistema Biblioteca</h1>
+    <header>
+        <h1 class="text-center">Bem-vindo ao Sistema Biblioteca</h1>
+    </header>
+    <main class="container">
         <p>Escolha uma das opções abaixo para continuar:</p>
-        <a href="form-cadastra-livros.html" class="button">Cadastrar Livros</a>
-        <a href="form-cadastra-leitores.html" class="button">Cadastrar Leitores</a>
-        <a href="listar.php" class="button">Listar Leitores</a>
-    </div>
+        
+        <div class="button-group">
+            <h2>Leitores</h2>
+            <a href="form-cadastra-leitores.html" class="button">Cadastrar Leitores</a>
+            <a href="listar-leitores.php" class="button">Alterar/Excluir Leitores</a>
+        </div>
+        
+        <div class="button-group">
+            <h2>Livros</h2>
+            <a href="form-cadastra-livros.html" class="button">Cadastrar Livros</a>
+            <a href="listar-livros.php" class="button">Alterar/Excluir Livros</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Sistema Biblioteca. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
