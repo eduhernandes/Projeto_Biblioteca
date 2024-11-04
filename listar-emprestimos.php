@@ -91,7 +91,6 @@ $leitor_selecionado = isset($_POST['codleitor']) ? $_POST['codleitor'] : null;
                                 <th>Livro</th>
                                 <th>Data Empréstimo</th>
                                 <th>Data Devolução</th>
-                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>";
@@ -104,9 +103,7 @@ $leitor_selecionado = isset($_POST['codleitor']) ? $_POST['codleitor'] : null;
                     // Verificando o status do empréstimo
                     $hoje = new DateTime();
                     $devolucao = new DateTime($emprestimo['Data_Devolucao']);
-                    $status = $hoje > $devolucao ? 
-                             '<span style="color: red;">Atrasado</span>' : 
-                             '<span style="color: green;">Em dia</span>';
+                    
 
                     echo "<tr>
                             <td>{$emprestimo['CodEmprestimo']}</td>
@@ -114,7 +111,7 @@ $leitor_selecionado = isset($_POST['codleitor']) ? $_POST['codleitor'] : null;
                             <td>{$emprestimo['TituloLivro']}</td>
                             <td>{$data_emprestimo}</td>
                             <td>{$data_devolucao}</td>
-                            <td>{$status}</td>
+                            
                           </tr>";
                 }
                 echo "</tbody></table>";
