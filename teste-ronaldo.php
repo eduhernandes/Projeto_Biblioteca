@@ -21,7 +21,10 @@
 
 
     <p>Parece que você quer um de nossos livros não é? Efetue seu pagamento ali e bla bla bla</p> <br>
+<?php
 
+?>
+    
 
 <footer>
         <p>Aluno: Ronaldo Cesar <br> 
