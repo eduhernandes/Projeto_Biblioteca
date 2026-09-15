@@ -2,18 +2,18 @@
 <html>
 <head>
     <title>Agenda de Contatos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <header>
-        <a href="index.html"><button title="Voltar ao início">Home</button></a>
+        <a href="../index.html"><button title="Voltar ao início">Home</button></a>
         <h1 class="text-center">SISTEMA BIBLIOTECA</h1>
         <h3 class="text-center">CADASTRO DE LEITORES</h3>
         <hr>
 </header>
 <?php
 // Conexão com o banco de dados
-include "config.php";
+include "../db.php";
 // Verifica a conexão
 if ($conn->connect_error) {
     die("Conexão falhou: {$conn->connect_error}");

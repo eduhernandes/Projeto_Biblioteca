@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alterar/Excluir Cadastro de Leitores</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <header>
-        <a href="index.html"><button title="Voltar ao início">Home</button></a>
+        <a href="../index.html"><button title="Voltar ao início">Home</button></a>
         <center>
             <h1>SISTEMA BIBLIOTECA</h1>
             <h3>CADASTRO DE LEITORES</h3>
@@ -20,7 +20,7 @@
 
 
     <?php
-include "config.php";
+include "../db.php";
 
 $codleitor = isset($_POST['codleitor'])? (int)$_POST['codleitor'] : null;
 
@@ -35,7 +35,7 @@ if ($codleitor > 0) {
     }
 };
 ?>
-        <form action="altera-leitor.php" method="post">
+        <form action="update.php" method="post">
         <div>
         <label for="codleitor">Código:</label>
         <input type="text" id="codleitor" name="codleitor" readonly value="<?php 
@@ -89,7 +89,7 @@ if ($codleitor > 0) {
     function excluirLeitor() {
       if (confirm('Tem certeza que deseja excluir este cadastro?')) {
         // Aqui você pode adicionar a lógica para excluir o leitor, talvez redirecionando para uma página PHP
-        window.location.href = 'exclui-leitor.php?codleitor=' + document.getElementById('codleitor').value;
+        window.location.href = '../readers/delete.php?codleitor=' + document.getElementById('codleitor').value;
       }
     }
   </script>

@@ -6,14 +6,14 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><button title="Voltar ao início">Home</button></a>
+        <a href="../index.html"><button title="Voltar ao início">Home</button></a>
             <h1 class="text-center">SISTEMA BIBLIOTECA</h1>
             <h3 class="text-center">Leitores Cadastrados</h3>
         <hr>
     </header>
    <main>
    <?php
-    include "config.php";
+    include "../db.php";
 
     $sql = "SELECT * FROM leitores";
     $result = mysqli_query($conn, $sql);
@@ -27,7 +27,7 @@
     }
    ?>
 
-    <form method="post" action="form-altera-leitores.php">
+    <form method="post" action="edit-form.php">
         <table border="0">
             <tr>
                 <td bgcolor="#cccccc" class="myinputstyle" size="3">Código:</td>

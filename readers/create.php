@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Livros</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <?php
 // Inclui o arquivo de configuração (conexão com banco de dados)
-include "config.php";
+include "../db.php";
 // Verifica se a conexão com o banco foi bem-sucedida
 if (!$conn){
     // Se a conexão falhar, exibe uma mensagem de erro e encerra a execução
@@ -39,12 +39,12 @@ die(mysqli_error(mysql: $conn));
 if($query){
     echo "<center>";
     echo "<h1>Cadastro realizado com sucesso!!</h1><br>";
-    echo "<a href='index.html'><button title='Home page'>Voltar</button></a>";
+    echo "<a href='../index.html'><button title='Home page'>Voltar</button></a>";
     echo "</center>";
 } else {
     echo "<center>";
     echo "<h1>Erro ao cadastrar!!</h1><br>";
-    echo "<a href='index.php'><button title='Home page'>Voltar</button></a>";
+    echo "<a href='../index.html'><button title='Home page'>Voltar</button></a>";
     echo "</center>";
 }
 ?>
