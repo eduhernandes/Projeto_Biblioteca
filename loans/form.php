@@ -1,13 +1,12 @@
 <?php
-include "config.php";
+include "../db.php";
 
-// Consulta para obter todos os leitores
 $sql_leitores = "SELECT CodLeitor, Nome FROM leitores ORDER BY Nome";
-$result_leitores = mysqli_query($conn, $sql_leitores);
-
-// Consulta para obter todos os livros
 $sql_livros = "SELECT CodLivro, Titulo FROM livros ORDER BY Titulo";
-$result_livros = mysqli_query($conn, $sql_livros);
+
+$result_leitores = $conn->query($sql_leitores);
+$result_livros = $conn->query($sql_livros);
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -16,37 +15,38 @@ $result_livros = mysqli_query($conn, $sql_livros);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Empréstimos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
-        <a href="index.html"><button title="Voltar ao início">Home</button></a>
+        <a href="../index.html" class="button secondary" title="Voltar ao início">Home</a>
         <h1 class="text-center">SISTEMA BIBLIOTECA</h1>
-        <h3 class="text-center">CADASTRO DE EMPRÉSTIMOS</h3>
+        <h3 class="text-center">Cadastro de Empréstimos</h3>
         <hr>
     </header>
-    <div class="container">
-        <form action="cadastra-emprestimo.php" method="post">
+
+    <main class="container">
+        <form action="cadastrar.php" method="post">
             <div>
                 <label for="codleitor">Leitor:</label>
                 <select id="codleitor" name="codleitor" required>
                     <option value="">Selecione um leitor</option>
-                    <?php
-                    while ($row = mysqli_fetch_assoc($result_leitores)) {
-                        echo "<option value='" . $row['CodLeitor'] . "'>" . $row['CodLeitor'] . " - " . $row['Nome'] . "</option>";
-                    }
-                    ?>
+                    <?php while ($leitor = $result_leitores->fetch_assoc()): ?>
+                        <option value="<?php echo htmlspecialchars($leitor['CodLeitor']); ?>">
+                            <?php echo htmlspecialchars($leitor['CodLeitor'] . ' - ' . $leitor['Nome']); ?>
+                        </option>
+                    <?php endwhile; ?>
                 </select>
             </div>
             <div>
                 <label for="codlivro">Livro:</label>
                 <select id="codlivro" name="codlivro" required>
                     <option value="">Selecione um livro</option>
-                    <?php
-                    while ($row = mysqli_fetch_assoc($result_livros)) {
-                        echo "<option value='" . $row['CodLivro'] . "'>" . $row['CodLivro'] . " - " . $row['Titulo'] . "</option>";
-                    }
-                    ?>
+                    <?php while ($livro = $result_livros->fetch_assoc()): ?>
+                        <option value="<?php echo htmlspecialchars($livro['CodLivro']); ?>">
+                            <?php echo htmlspecialchars($livro['CodLivro'] . ' - ' . $livro['Titulo']); ?>
+                        </option>
+                    <?php endwhile; ?>
                 </select>
             </div>
             <div>
@@ -58,13 +58,10 @@ $result_livros = mysqli_query($conn, $sql_livros);
                 <input type="date" id="data_devolucao" name="data_devolucao" required />
             </div>
             <div>
-                <button type="submit">Cadastrar Empréstimo</button>
+                <button type="submit">Cadastrar empréstimo</button>
+                <a href="listar.php" class="button secondary">Listar empréstimos</a>
             </div>
         </form>
-    </div>
+    </main>
 </body>
 </html>
-
-<?php
-mysqli_close($conn);
-?>

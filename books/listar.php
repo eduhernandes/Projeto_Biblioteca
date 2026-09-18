@@ -1,7 +1,7 @@
 <?php
 include "../db.php";
 
-$sql = "SELECT * FROM leitores ORDER BY CodLeitor ASC";
+$sql = "SELECT * FROM livros ORDER BY CodLivro ASC";
 $result = $conn->query($sql);
 ?>
 
@@ -10,14 +10,14 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leitores Cadastrados</title>
+    <title>Livros Cadastrados</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
         <a href="../index.html" class="button secondary" title="Voltar ao início">Home</a>
         <h1 class="text-center">SISTEMA BIBLIOTECA</h1>
-        <h3 class="text-center">Leitores cadastrados</h3>
+        <h3 class="text-center">Livros cadastrados</h3>
         <hr>
     </header>
 
@@ -29,31 +29,31 @@ $result = $conn->query($sql);
                 <thead>
                     <tr>
                         <th>Código</th>
-                        <th>Nome</th>
-                        <th>Celular</th>
-                        <th>E-mail</th>
-                        <th>RA</th>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Editora</th>
+                        <th>Ano</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($leitor = $result->fetch_assoc()): ?>
+                    <?php while ($livro = $result->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($leitor['CodLeitor']); ?></td>
-                            <td><?php echo htmlspecialchars($leitor['Nome']); ?></td>
-                            <td><?php echo htmlspecialchars($leitor['Celular']); ?></td>
-                            <td><?php echo htmlspecialchars($leitor['Email']); ?></td>
-                            <td><?php echo htmlspecialchars($leitor['RA']); ?></td>
+                            <td><?php echo htmlspecialchars($livro['CodLivro']); ?></td>
+                            <td><?php echo htmlspecialchars($livro['Titulo']); ?></td>
+                            <td><?php echo htmlspecialchars($livro['Autor']); ?></td>
+                            <td><?php echo htmlspecialchars($livro['Editora']); ?></td>
+                            <td><?php echo htmlspecialchars($livro['AnoPublicacao']); ?></td>
                             <td>
-                                <a href="editar.php?codleitor=<?php echo urlencode($leitor['CodLeitor']); ?>">Editar</a> |
-                                <a href="excluir.php?codleitor=<?php echo urlencode($leitor['CodLeitor']); ?>" onclick="return confirm('Deseja realmente excluir este leitor?');">Excluir</a>
+                                <a href="editar.php?codlivro=<?php echo urlencode($livro['CodLivro']); ?>">Editar</a> |
+                                <a href="excluir.php?codlivro=<?php echo urlencode($livro['CodLivro']); ?>" onclick="return confirm('Deseja realmente excluir este livro?');">Excluir</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
             </table>
         <?php else: ?>
-            <p>Nenhum leitor encontrado.</p>
+            <p>Nenhum livro encontrado.</p>
         <?php endif; ?>
     </main>
 </body>

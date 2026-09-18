@@ -8,9 +8,9 @@
 </head>
 <body>
   <header>
-    <a href="../index.html"><button title="Voltar ao início">Home</button></a>
+    <a href="../index.html" class="button secondary" title="Voltar ao início">Home</a>
     <h1 class="text-center">SISTEMA BIBLIOTECA</h1>
-    <h3 class="text-center">CADASTRO DE LEITORES</h3>
+    <h3 class="text-center">Cadastro de Leitores</h3>
     <hr>
   </header>
 
@@ -54,7 +54,7 @@
       </div>
       <div>
         <button type="submit">Cadastrar</button>
-        <a href="index.php"><button type="button">Listar Leitores</button></a>
+        <a href="listar.php" class="button secondary">Listar leitores</a>
       </div>
     </form>
   </main>

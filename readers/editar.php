@@ -35,9 +35,9 @@ $stmt->close();
 </head>
 <body>
     <header>
-        <a href="../index.html"><button title="Voltar ao início">Home</button></a>
+        <a href="../index.html" class="button secondary" title="Voltar ao início">Home</a>
         <h1 class="text-center">SISTEMA BIBLIOTECA</h1>
-        <h3 class="text-center">EDITAR LEITOR</h3>
+        <h3 class="text-center">Editar leitor</h3>
         <hr>
     </header>
 
@@ -85,7 +85,7 @@ $stmt->close();
             </div>
             <div>
                 <button type="submit">Atualizar</button>
-                <a href="listar.php"><button type="button">Cancelar</button></a>
+                <a href="listar.php" class="button secondary">Cancelar</a>
             </div>
         </form>
     </main>

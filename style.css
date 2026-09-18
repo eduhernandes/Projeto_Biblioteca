@@ -1,45 +1,191 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: #f3f6fb;
+    color: #1f2937;
     margin: 0;
     padding: 20px;
 }
-h1 {
-    color: #333;
+
+header {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 15px;
+    margin: 0 auto 20px;
+    max-width: 1100px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-label{
-    width: 100px;
-    text-align: right;
-    display: inline-block;
-    padding-right: 5px;
+
+h1, h2, h3 {
+    color: #1f2937;
+    margin: 10px 0;
 }
+
+hr {
+    border: 0;
+    border-top: 1px solid #dfe7f1;
+    margin: 15px 0 0;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
-}
-.button-group {
-    border: 1px solid #ccc; /* Borda da caixa */
-    border-radius: 5px; /* Bordas arredondadas */
-    padding: 20px; /* Espaçamento interno */
-    margin: 10px; /* Espaçamento entre as caixas */
-    width: 300px; /* Largura fixa para as caixas */
-    text-align: center; /* Centraliza o texto */
-}
-.button {
-    display: block; /* Faz cada botão ocupar a linha inteira */
-    margin: 10px 0; /* Espaçamento entre os botões */
-    padding: 10px; /* Espaçamento interno do botão */
-    background-color: #007BFF; /* Cor de fundo do botão */
-    color: white; /* Cor do texto */
-    text-decoration: none; /* Remove o sublinhado */
-    border-radius: 5px; /* Bordas arredondadas para os botões */
+    margin: 20px auto;
+    max-width: 900px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 25px;
 }
 
-.button:hover {
-    background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+form {
+    width: 100%;
+    max-width: 700px;
 }
+
+form > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+
+label {
+    width: 200px;
+    text-align: right;
+    display: inline-block;
+    font-weight: 600;
+    color: #374151;
+}
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    max-width: 420px;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fff;
+    color: #111827;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+button,
+.button {
+    display: inline-block;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+button:hover,
+.button:hover {
+    transform: translateY(-1px);
+    opacity: 0.96;
+}
+
+.button-group {
+    border: 1px solid #dfe7f1;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+    width: min(420px, 100%);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.button {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.button.secondary {
+    background: linear-gradient(135deg, #475569, #334155);
+    box-shadow: 0 4px 10px rgba(71, 85, 105, 0.2);
+}
+
 .text-center {
     text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th,
+td {
+    border: 1px solid #dfe7f1;
+    padding: 12px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #eef4ff;
+    color: #1e3a8a;
+}
+
+tr:nth-child(even) {
+    background: #f8fbff;
+}
+
+p {
+    margin: 10px 0;
+}
+
+.center {
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    form > div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    label {
+        width: 100%;
+        text-align: left;
+    }
+
+    input,
+    textarea,
+    select {
+        max-width: 100%;
+    }
 }
