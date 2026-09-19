@@ -52,9 +52,13 @@
   ALTER TABLE `usuarios`
     MODIFY `CodUsuario` int(11) NOT NULL AUTO_INCREMENT;
 
-  -- --------------------------------------------------------
+--
+-- Usuário administrador padrão
+-- Senha: admin123
+--
+INSERT INTO `usuarios` (`CodUsuario`, `Nome`, `Email`, `Senha`, `Tipo`, `Status`, `DataCadastro`) VALUES
+(1, 'Administrador', 'admin@biblioteca.com', '$2b$12$kvclBtn9MYP9OrU7r3sBGuy5G6KuLDV4ipqzlo0OdDjTjIr.InEde', 'admin', 'ativo', NOW());
 
-  --
   -- Estrutura da tabela `emprestimos`
   --
 
@@ -104,7 +108,7 @@
 (2, 'Maria da Silva Nascimento', '1984-03-02', '(81) 98877-4422', 'maria.nascimento@gmail.com', 631113102, 'Rua da Vovó', '101', 'Maranguape I', 'Paulista/PE'),
 (3, 'Carlos Andrade de Almeida', '1990-07-15', '(81) 99654-7788', 'carlos.almeida@gmail.com', 456123, 'Rua das Amélia', '478', 'Abreu e Lima', 'Paulista/PE'),
 (4, 'Eduardo Hernandes', '1988-11-27', '(81) 99123-4567', 'eduardo.hernandes@gmail.com', 78771, 'Rua das Camelias', '11', 'Janga', 'Paulista/PE'),
-(5, 'José Hernandes', '2004-05-02', '(81) 98456-1123', 'jose.hernandes@gmail.com', 78775, 'Rua das Salamandras', '12', 'Janga', 'Paulista/PE'),
+(5, 'José Hernandes', '2004-05-02', '(81) 98456-1123', 'jose.hernandes@gmail.com', 78775, 'Rua das Salamandras', '12', 'Janga', 'Paulista/PE');
 
   -- --------------------------------------------------------
 

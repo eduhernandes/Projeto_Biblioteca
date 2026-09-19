@@ -1,4 +1,5 @@
 <?php
+require_once "../auth.php";
 include "../db.php";
 
 $codlivro = filter_input(INPUT_GET, 'codlivro', FILTER_VALIDATE_INT);

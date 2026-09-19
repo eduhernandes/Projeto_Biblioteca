@@ -548,7 +548,7 @@ Essa ordem preserva o funcionamento do sistema e garante que o login e a seguran
 
 ### Sprint 1 — Segurança e acesso
 
-- [ ] criar a tabela `usuarios`;
+- [X ] criar a tabela `usuarios`;
 - [ ] implementar `login.php`, `autenticar.php` e `logout.php`;
 - [ ] aplicar `session_start()` e proteção por sessão;
 - [ ] validar redirecionamento para login quando não houver sessão;
