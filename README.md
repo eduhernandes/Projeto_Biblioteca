@@ -112,11 +112,25 @@ A conexão padrão está configurada em `db.php` com os seguintes parâmetros:
 
 ## 🧭 Como Usar
 1. Acesse a página inicial do sistema.
-2. Escolha a área desejada: leitores, livros ou empréstimos.
-3. Cadastre, consulte, edite ou exclua os registros conforme a necessidade.
-4. Utilize o sistema para manter o controle de informações da biblioteca de forma organizada.
+2. Faça login com as credenciais padrão do administrador:
+   - E-mail: `admin@biblioteca.com`
+   - Senha: `admin123`
+3. Escolha a área desejada: leitores, livros ou empréstimos.
+4. Cadastre, consulte, edite ou exclua os registros conforme a necessidade.
+5. Utilize o sistema para manter o controle de informações da biblioteca de forma organizada.
 
-## 📝 Observações
+## � Tipos de Usuário e Permissões
+O sistema conta com três perfis de acesso:
+
+| Tipo | Permissões |
+| --- | --- |
+| `admin` | Acesso completo ao sistema, incluindo cadastro e listagem de usuários. |
+| `bibliotecario` | Pode gerenciar livros, leitores e empréstimos. |
+| `usuario` | Acesso restrito às operações básicas do sistema, conforme a regra de negócio definida. |
+
+O cadastro de usuários é restrito ao perfil administrador, mantendo o controle de criação de contas e proteção do sistema.
+
+## �📝 Observações
 Este projeto é uma solução prática para fins acadêmicos e de aprendizado, com foco em operações básicas de gestão bibliotecária.
 
 ## 📄 Licença

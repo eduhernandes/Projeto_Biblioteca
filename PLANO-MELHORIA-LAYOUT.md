@@ -548,15 +548,40 @@ Essa ordem preserva o funcionamento do sistema e garante que o login e a seguran
 
 ### Sprint 1 — Segurança e acesso
 
-- [X ] criar a tabela `usuarios`;
-- [ ] implementar `login.php`, `autenticar.php` e `logout.php`;
-- [ ] aplicar `session_start()` e proteção por sessão;
-- [ ] validar redirecionamento para login quando não houver sessão;
-- [ ] testar login válido e inválido no XAMPP.
+- [X] criar a tabela `usuarios`;
+- [x] implementar `login.php`, `autenticar.php` e `logout.php`;
+- [x] aplicar `session_start()` e proteção por sessão;
+- [x] validar redirecionamento para login quando não houver sessão;
+- [x] testar login válido e inválido no XAMPP.
 
 Entrega: o sistema passa a exigir autenticação antes de abrir qualquer página interna.
 
-### Sprint 2 — Layout base e navegação
+### Sprint 2 — Reorganização da estrutura do projeto
+
+Checklist operacional:
+
+- [ ] 1. Mapear a estrutura atual de pastas, arquivos e rotas do sistema;
+- [ ] 2. Identificar duplicações de código entre livros, leitores e empréstimos;
+- [ ] 3. Definir uma padronização por módulo: listagem, cadastro, processamento e navegação;
+- [ ] 4. Separar responsabilidades de banco, autenticação e páginas públicas/privadas;
+- [ ] 5. Organizar os arquivos para reduzir dependências entre módulos e evitar caminhos inconsistentes;
+- [ ] 6. Revisar o fluxo de navegação entre as páginas internas para eliminar redundâncias;
+- [ ] 7. Criar padrões reutilizáveis para conexão com banco, sessão e validações simples;
+- [ ] 8. Revisar os links principais do sistema para garantir que o acesso siga o fluxo correto;
+- [ ] 9. Registrar a nova estrutura no projeto para facilitar manutenção posterior;
+- [ ] 10. Validar que a autenticação continua funcionando após a reorganização.
+
+Entrega: o projeto passa a ter uma estrutura mais clara, reutilizável e preparada para evoluir sem acúmulo de código duplicado.
+
+Critérios de aceite do Sprint 2:
+- os arquivos de cada módulo ficam agrupados por responsabilidade;
+- há menos duplicação entre operações de cadastro, edição e listagem;
+- a navegação entre módulos é consistente e previsível;
+- a base de autenticação e banco permanece protegida e funcional;
+- a estrutura resultante está pronta para receber a padronização visual do Sprint 3;
+- a organização do projeto fica clara para manutenção e futuras evoluções.
+
+### Sprint 3 — Layout base e navegação
 
 - [ ] ajustar `style.css` com o layout principal;
 - [ ] aplicar menu lateral em todas as páginas internas;
@@ -566,7 +591,7 @@ Entrega: o sistema passa a exigir autenticação antes de abrir qualquer página
 
 Entrega: o sistema ganha uma estrutura visual comum e consistente.
 
-### Sprint 3 — Módulos e formulários
+### Sprint 4 — Módulos e formulários
 
 - [ ] migrar `readers/listar.php`, `books/listar.php` e `loans/listar.php`;
 - [ ] padronizar formulários de cadastro e edição;
@@ -576,7 +601,7 @@ Entrega: o sistema ganha uma estrutura visual comum e consistente.
 
 Entrega: leitores, livros e empréstimos passam a operar no mesmo padrão visual.
 
-### Sprint 4 — Exemplar e integração funcional
+### Sprint 5 — Exemplar e integração funcional
 
 - [ ] criar a tabela `exemplares` e o script de migração;
 - [ ] criar a tela de exemplares vinculada a cada livro;
@@ -586,7 +611,7 @@ Entrega: leitores, livros e empréstimos passam a operar no mesmo padrão visual
 
 Entrega: o fluxo completo de livros e empréstimos fica consistente com o controle físico dos exemplares.
 
-### Sprint 5 — Testes finais e revisão
+### Sprint 6 — Testes finais e revisão
 
 - [ ] executar testes de segurança, autenticação e autorização;
 - [ ] verificar telas vazias, erros e mensagens visuais;
