@@ -1,4 +1,5 @@
 <?php
+require_once "../auth.php";
 include "../db.php";
 
 $sql_leitores = "SELECT CodLeitor, Nome FROM leitores ORDER BY Nome";

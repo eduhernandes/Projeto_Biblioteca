@@ -1,4 +1,5 @@
 <?php
+require_once "../auth.php";
 include "../db.php";
 
 $codleitor = filter_input(INPUT_GET, 'codleitor', FILTER_VALIDATE_INT);
