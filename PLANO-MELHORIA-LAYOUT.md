@@ -114,33 +114,83 @@ Em telas menores:
 
 ## 5. Estrutura de páginas recomendada
 
-Não é necessário renomear todos os arquivos imediatamente. A implementação pode começar reaproveitando os caminhos atuais:
+A estrutura deve evoluir de forma gradual, preservando o sistema atual e preparando o projeto para arquitetura em camadas. O objetivo não é reescrever tudo de uma vez, mas separar a apresentação, a regra de negócio e o acesso aos dados sem quebrar a navegação atual.
 
 ```text
 /
-├── index.php ou index.html
-├── style.css
+├── public/
+│   ├── index.php
+│   ├── login.php
+│   ├── logout.php
+│   ├── assets/
+│   │   ├── css/
+│   │   │   └── style.css
+│   │   └── js/
+│   └── modules/
+│       ├── readers/
+│       │   ├── listar.php
+│       │   ├── form.php
+│       │   ├── cadastrar.php
+│       │   ├── editar.php
+│       │   ├── atualizar.php
+│       │   └── excluir.php
+│       ├── books/
+│       │   ├── listar.php
+│       │   ├── form.php
+│       │   ├── cadastrar.php
+│       │   ├── editar.php
+│       │   ├── atualizar.php
+│       │   └── excluir.php
+│       └── loans/
+│           ├── listar.php
+│           ├── form.php
+│           ├── cadastrar.php
+│           ├── devolver.php
+│           └── excluir.php
+├── src/
+│   ├── Core/
+│   │   ├── Database.php
+│   │   ├── Session.php
+│   │   ├── Auth.php
+│   │   └── Helpers.php
+│   ├── Services/
+│   │   ├── UserService.php
+│   │   ├── ReaderService.php
+│   │   ├── BookService.php
+│   │   └── LoanService.php
+│   ├── Repositories/
+│   │   ├── UserRepository.php
+│   │   ├── ReaderRepository.php
+│   │   ├── BookRepository.php
+│   │   └── LoanRepository.php
+│   └── Templates/
+│       ├── layout.php
+│       ├── sidebar.php
+│       ├── header.php
+│       └── alerts.php
+├── config/
+│   ├── app.php
+│   └── database.php
+├── database/
+│   ├── scripts/
+│   └── migrations/
 ├── db.php
-├── readers/
-│   ├── listar.php       # tela principal de leitores
-│   ├── form.php         # cadastro
-│   ├── cadastrar.php    # processamento do cadastro
-│   ├── editar.php       # edição
-│   ├── atualizar.php    # processamento da edição
-│   └── excluir.php      # exclusão
-├── books/
-│   ├── listar.php       # tela principal de livros
-│   └── ...
-└── loans/
-    ├── listar.php       # tela principal de empréstimos
-    └── ...
+├── auth.php
+├── style.css
+├── index.html                  # opcional durante a transição
+├── README.md
+└── LICENSE
 ```
 
-### Recomendação sobre a página inicial
+### Recomendação prática
 
-Migrar gradualmente `index.html` para `index.php` apenas se for necessário compartilhar PHP ou informações do banco na página inicial. Caso a página inicial continue estática, ela pode permanecer como HTML.
+- `public/` concentra as páginas acessadas pelo usuário e os módulos de interface;
+- `src/` concentra a lógica reutilizável do sistema, como autenticação, serviços e consultas;
+- `templates/` centraliza o layout comum, como sidebar, cabeçalho e mensagens;
+- os caminhos atuais podem ser preservados durante a migração, desde que o menu interno mantenha links consistentes;
+- a página inicial pode continuar como `index.html` enquanto não houver necessidade real de PHP nela.
 
-O ponto importante é que o menu das páginas internas sempre aponte para o caminho correto da página inicial, sem duplicar caminhos diferentes.
+A ideia principal é manter a navegação simples e direta, mas sem misturar HTML, regras de negócio e banco em cada arquivo.
 
 ---
 
@@ -200,16 +250,28 @@ Todas as páginas internas deverão verificar a sessão antes de exibir o conte�
 
 ### Estrutura mínima recomendada
 
+A base de autenticação deve seguir o mesmo princípio da arquitetura em camadas: separar a entrada da aplicação, a sessão e a lógica de autorização.
+
 ```text
 /
-├── login.php              # formulário de usuário e senha
-├── autenticar.php         # validação das credenciais
-├── logout.php             # encerra a sessão
-├── auth/
-│   ├── iniciar.php        # session_start e funções simples de sessão
-│   └── proteger.php       # bloqueia páginas sem autenticação
-└── users/
-    └── ...                # cadastro administrativo, se necessário no futuro
+├── public/
+│   ├── login.php          # formulário de usuário e senha
+│   ├── logout.php         # encerra a sessão
+│   └── index.php          # painel principal após o login
+├── src/
+│   ├── Core/
+│   │   ├── Database.php    # conexão com o banco
+│   │   ├── Session.php    # helpers de sessão
+│   │   └── Auth.php       # validação e autenticação
+│   ├── Services/
+│   │   └── UserService.php
+│   └── Repositories/
+│       └── UserRepository.php
+├── templates/
+│   └── layout.php         # layout compartilhado
+├── db.php                 # conexão direta do projeto
+├── auth.php               # helpers rápidos de autenticação
+└── style.css
 ```
 
 ### Regras de segurança
